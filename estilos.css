@@ -1,0 +1,2411 @@
+:root{
+    --fondo: #170F1F;
+    --superficie: #3D2C4E;
+    --violeta: #A366BE;
+    --violetaOscuro: #67447D;
+    --naranja: #C95A3E;
+    --violetaClaro: #D7B0E6;
+    --borde: rgba(255, 255, 255, 0.10);
+    --linea: rgba(255, 255, 255, 0.55);
+    --tenue: rgba(255, 255, 255, 0.72);
+    --radio: 16px;
+    --ancho: 1200px;
+    --offsetPortada: 398px; /* header (80) + titulo 2 lineas (184.32) + padding-top portada (48) + subtitulo (38.4) + su margen (48), medido en desktop (>=1300px, donde el header/titulo/subtitulo ya no crecen por el vw del clamp). Si cambian esos valores, hay que recalcular este numero a mano. */
+    --espacioFlujo: 110px;
+    --suave: cubic-bezier(0.22, 1, 0.36, 1);
+    --rebote: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+*,
+*::before,
+*::after{
+    box-sizing: border-box;
+}
+
+html{
+    background-color: var(--fondo);
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+}
+
+body{
+
+    .separado{
+        margin: bottom 25px;
+    }
+    margin: 0px;
+    max-width: 100%;
+    overflow-x: hidden;
+    position: relative;
+
+    color: white;
+
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-optical-sizing: auto;
+    letter-spacing: -0.04em;
+
+}
+
+img{
+    max-width: 100%;
+}
+
+.sprite{
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+}
+
+::selection{
+    background-color: var(--violeta);
+    color: white;
+}
+
+:focus-visible{
+    outline: 2px solid var(--violetaClaro);
+    outline-offset: 3px;
+}
+
+
+/*
+========================================
+            TIPOGRAFIAS
+========================================
+*/
+
+h1{
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-size: clamp(2rem, 7.4vw, 96px);
+    line-height: 0.96;
+    text-align: center;
+    letter-spacing: 0.02em;
+}
+
+h2{
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-size: clamp(1.7rem, 5vw, 64px);
+    line-height: 1.08;
+    text-align: center;
+    letter-spacing: 0em;
+}
+
+h3{
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-size: clamp(1.2rem, 2.8vw, 32px);
+    line-height: 1.2;
+    text-align: center;
+    letter-spacing: -0.02em;
+}
+
+p, ol, li{
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-size: clamp(1rem, 2.1vw, 32px);
+    line-height: 1.35;
+    text-align: center;
+    letter-spacing: -0.04em;
+}
+
+
+/*
+=======================================================
+                     HEADER
+=======================================================
+*/
+
+header{
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+    color: white;
+
+    position: relative;
+    z-index: 1;
+
+    padding: clamp(48px, 8vw, 80px) clamp(16px, 4vw, 40px) 0;
+
+
+}
+
+header h1{
+    max-width: 1200px;
+
+    margin: 0px;
+}
+
+.palabra{
+    display: inline-block;
+}
+
+.tituloPrincipal.animado .palabra{
+    opacity: 0;
+    animation: entradaPalabra 1s var(--suave) forwards;
+    animation-delay: var(--retraso, 0ms);
+}
+
+@keyframes entradaPalabra{
+    from{
+        opacity: 0;
+        transform: translateY(0.6em) rotate(2.5deg);
+        filter: blur(8px);
+    }
+    to{
+        opacity: 1;
+        transform: none;
+        filter: blur(0);
+    }
+}
+
+.resaltado{
+    font-weight: 600;
+}
+
+.resaltado2{
+    background: linear-gradient(to right, #D7B0E6, #A366BE);
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+}
+
+.resaltado3{
+    font-size: clamp(0.85rem, 1.3vw, 20px);
+}
+
+.resaltado4{
+    color: var(--naranja);
+}
+
+
+/*
+=======================================================
+                     PORTADA
+=======================================================
+*/
+
+.portada{
+
+    color: white;
+
+    position: relative;
+
+    width: 100%;
+    overflow-x: clip;
+
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+    padding: 48px clamp(16px, 4vw, 40px) 0;
+
+}
+
+.destello{
+    position: absolute;
+    top: 264px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    aspect-ratio: 1920 / 1860;
+    min-height: 680px;
+
+    background-image: url(./img/Destello\ violeta.png);
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: 100% 100%;
+
+    -webkit-mask-image: linear-gradient(to bottom, black 62%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 62%, transparent 100%);
+
+    z-index: -1;
+    pointer-events: none;
+    will-change: transform;
+}
+
+.portada h3{
+    max-width: 1200px;
+    margin: 0 0 48px;
+}
+
+.manoWrap{
+    height: clamp(556px, calc(100vh - var(--offsetPortada)), 682px);
+    overflow: hidden;
+}
+
+.manoMovil{
+    height: 100%;
+    will-change: transform;
+    transform: translateY(var(--desplazamiento, 0px));
+    transition: transform 4s var(--suave);
+}
+
+.mano{
+
+    display: block;
+    height: 100%;
+    width: auto;
+
+    animation: flotar 4s ease-in-out infinite;
+
+}
+
+@keyframes flotar{
+    0%, 100%{ transform: translateY(0); }
+    50%{ transform: translateY(16px); }
+}
+
+.intro{
+
+    padding: clamp(20px, 2.6vw, 32px);
+
+    max-width: 1200px;
+    width: 100%;
+
+}
+
+.intro p{
+    margin: 0;
+    line-height: 1.2;
+}
+
+.bloque-completo{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 132px;
+    margin-top: 32px;
+}
+
+.columna{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 448px;
+}
+
+.columna img{
+    width: 128px;
+    height: 128px;
+    object-fit: cover;
+    margin-bottom: 8px;
+}
+
+.columna p{
+    margin: 0;
+    line-height: 1.2;
+}
+
+
+/*
+=======================================================
+                     SECCIONES
+=======================================================
+*/
+
+.seccion1,
+.seccion2,
+.seccion3{
+
+    color: white;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+    position: relative;
+    z-index: 2;
+
+    padding: 0 clamp(16px, 4vw, 40px);
+
+}
+
+.seccion1{
+    margin-top: clamp(20px, 3vw, 48px);
+}
+
+.seccion2,
+.seccion3{
+    margin-top: clamp(40px, 6vw, 80px);
+}
+
+.intro,
+.contSeccion1,
+.contSeccion2,
+.contSeccion3{
+
+    position: relative;
+    border-radius: 16px;
+
+    background-color: rgba(23, 15, 31, 0.500);
+
+    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
+
+}
+
+.intro::before,
+.contSeccion1::before,
+.contSeccion2::before,
+.contSeccion3::before{
+
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0) 100%);
+
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    mask-composite: exclude;
+
+    pointer-events: none;
+
+}
+
+.contSeccion1,
+.contSeccion2,
+.contSeccion3{
+
+    padding: clamp(20px, 3vw, 32px);
+
+    width: 100%;
+    max-width: var(--ancho);
+
+}
+
+.contSeccion1 > h2,
+.contSeccion2 > h2,
+.contSeccion3 > h2{
+    margin: clamp(8px, 1.2vw, 16px) 0 32px;
+}
+
+.contSeccion3 > h2{
+    margin-top: 0;
+}
+
+.bajada{
+    max-width: 1134px;
+    margin: 0 auto 32px;
+    color: rgba(255, 255, 255);
+}
+
+
+/*
+=======================================================
+                     SECCION 1
+=======================================================
+*/
+
+.contenedorTarjetas{
+    display: grid;
+    grid-template-columns: 551px 551px;
+    gap: 32px;
+    align-items: start;
+    position: relative;
+    width: 1134px;
+    margin: 0 auto;
+}
+
+.tarjeta:nth-of-type(1){ grid-column: 1; grid-row: 1; }
+.tarjeta:nth-of-type(2){ grid-column: 2; grid-row: 2; }
+.tarjeta:nth-of-type(3){ grid-column: 1; grid-row: 3; }
+.tarjeta:nth-of-type(4){ grid-column: 2; grid-row: 4; }
+.tarjeta:nth-of-type(5){ grid-column: 1; grid-row: 5; }
+.tarjeta:nth-of-type(6){ grid-column: 2; grid-row: 6; }
+
+.contenedorTarjetas > .conectores{
+    z-index: 0;
+}
+
+.tarjeta{
+
+    --mx: 50%;
+    --my: 0%;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 16px;
+
+    width: 551px;
+    min-height: 497px;
+    max-height: 497px;
+
+    padding: 16px;
+
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+
+    background-color: var(--superficie);
+    border: 1px solid var(--borde);
+    border-radius: 16px;
+
+    transform: perspective(1100px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translateY(var(--ty, 0px));
+    transform-style: preserve-3d;
+
+    transition: transform 0.4s var(--suave), box-shadow 0.55s var(--suave), border-color 0.45s ease, max-height 0.6s var(--suave);
+
+}
+
+.tarjeta.abierta{
+    max-height: 3000px;
+}
+
+.tarjeta::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background: radial-gradient(340px circle at var(--mx) var(--my), rgba(163, 102, 190, 0.38), transparent 62%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+}
+
+.tarjeta > *{
+    position: relative;
+    z-index: 1;
+}
+
+.tarjeta:hover,
+.tarjeta:focus-within{
+    --ty: -8px;
+    border-color: rgba(163, 102, 190, 0.55);
+    box-shadow: 0 26px 60px -22px rgba(0, 0, 0, 0.9);
+}
+
+#lineaTiempo .tarjeta:hover,
+#lineaTiempo .tarjeta:focus-within,
+.tarjeta3:hover,
+.tarjeta3:focus-within{
+    --ty: -4px;
+}
+
+.tarjeta:hover::before,
+.tarjeta:focus-within::before{
+    opacity: 1;
+}
+
+.tarjetaTitulo{
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    text-align: center;
+    margin: 0;
+}
+
+.tarjetaMedia{
+    width: 519px;
+    height: 298px;
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.25);
+}
+
+.tarjetaMedia img{
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.9s var(--suave);
+}
+
+.tarjeta:hover .tarjetaMedia img{
+    transform: scale(1.06);
+}
+
+.tarjetaDetalle{
+    display: grid;
+    grid-template-rows: 0fr;
+    margin-top: -16px;
+    transition: grid-template-rows 0.6s var(--suave), margin-top 0.6s var(--suave);
+}
+
+.tarjeta.abierta .tarjetaDetalle{
+    grid-template-rows: 1fr;
+    margin-top: 0;
+}
+
+.tarjetaDetalle > div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    overflow: hidden;
+}
+
+.tarjeta3 .tarjetaDetalle > div{
+    gap: 32px;
+}
+
+.grupoDato{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+}
+
+.tarjetaDetalle p{
+    margin: 0;
+    font-size: 24px;
+    line-height: 1.5;
+    text-align: left;
+    color: #FFFFFF;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.45s ease 0.1s, transform 0.45s var(--suave) 0.1s;
+}
+
+.tarjeta3 .tarjetaDetalle p{
+    width: 910px;
+    line-height: 1.2;
+    text-align: center;
+}
+
+.tarjeta3 .tarjetaDetalle p.parrafoAncho{
+    width: 990px;
+}
+
+.tarjeta.abierta .tarjetaDetalle p{
+    opacity: 1;
+    transform: none;
+}
+
+/*
+=======================================================
+        GALERIAS DE IMAGENES (nucleo 1) + LIGHTBOX
+=======================================================
+*/
+
+.galeria{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.miniatura{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.miniaturaTitulo{
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-size: 20px;
+    color: #FFFFFF;
+    text-align: center;
+    margin: 0 0 8px;
+}
+
+.miniaturaImg{
+    position: relative;
+    display: block;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    background: none;
+    cursor: pointer;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.miniaturaImg img{
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.lupaChica{
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background-color: rgba(23, 15, 31, 0.9);
+    transition: opacity 0.25s ease;
+}
+
+.lupaChica svg{
+    width: 28px;
+    height: 28px;
+    color: #FFFFFF;
+}
+
+.hoverAmpliar{
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background-color: rgba(23, 15, 31, 0.9);
+    opacity: 0;
+    transition: opacity 0.25s ease;
+}
+
+.hoverAmpliar svg{
+    width: 80px;
+    height: 80px;
+    color: #FFFFFF;
+}
+
+.hoverAmpliar span{
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-size: 24px;
+    color: #FFFFFF;
+}
+
+.miniaturaImg:hover .hoverAmpliar{
+    opacity: 1;
+}
+
+.miniaturaImg:hover .lupaChica{
+    opacity: 0;
+}
+
+.miniaturaImg.fina .hoverAmpliar svg{
+    width: 40px;
+    height: 40px;
+}
+
+.miniaturaImg.fina .hoverAmpliar span{
+    display: none;
+}
+
+/* Sarah Andersen: par 253x253, gap 14px, 8px del titulo */
+.galeriaSarah{
+    gap: 14px;
+}
+.galeriaSarah .miniaturaImg{
+    width: 251px;
+    height: 251px;
+}
+
+/* Getty: par de fotos 253x204 y par de marcas (finas) 253x63 */
+.galeriaGettyFoto{
+    gap: 14px;
+    margin-bottom: 16px;
+}
+.galeriaGettyFoto .miniaturaImg{
+    width: 251px;
+    height: 202px;
+}
+.galeriaGettyMarca{
+    gap: 14px;
+}
+.galeriaGettyMarca .miniaturaImg{
+    width: 251px;
+    height: 61px;
+}
+
+/* Zarya: galeria de 3, sin titulo en la tarjeta chica */
+.galeriaZarya{
+    gap: 14px;
+}
+.galeriaZarya .miniaturaImg{
+    width: 163px;
+    height: 211px;
+}
+
+/* Ghibli: par 223x298 con flecha de 50px al medio */
+.galeriaGhibli{
+    gap: 12px;
+    align-items: flex-start;
+}
+.galeriaGhibli .miniaturaImg{
+    width: 221px;
+    height: 298px;
+}
+.flechaGhibli{
+    width: 50px;
+    height: 50px;
+    margin-top: 156px;
+    display: grid;
+    place-items: center;
+    color: #FFFFFF;
+    flex-shrink: 0;
+}
+.flechaGhibli svg{
+    width: 50px;
+    height: 50px;
+}
+
+/* Disney-Universal: galeria de 3, 164x164, un solo titulo arriba de las 3 */
+.galeriaDisneyTitulo{
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-size: 20px;
+    color: #FFFFFF;
+    text-align: center;
+    margin: 0 0 8px;
+}
+
+.tarjetaDetalle p.galeriaDisneyTitulo{
+    text-align: center;
+}
+.galeriaDisney{
+    gap: 14px;
+}
+.galeriaDisney .miniaturaImg{
+    width: 163px;
+    height: 163px;
+}
+
+/* ===== Lightbox ===== */
+
+.lbFondo{
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 48px 112px;
+    background-color: rgba(23, 15, 31, 0.85);
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+    overflow: auto;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0s linear 0.3s;
+}
+
+.lbFondo.activo{
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease, visibility 0s linear 0s;
+}
+
+.lbCaja{
+    position: relative;
+}
+
+.lbCerrar{
+    position: absolute;
+    top: 0;
+    right: -64px;
+    width: 48px;
+    height: 48px;
+    display: grid;
+    place-items: center;
+    border: 0;
+    border-radius: 50%;
+    background-color: rgba(23, 15, 31, 0.9);
+    color: #FFFFFF;
+    cursor: pointer;
+    transition: background-color 0.25s ease;
+}
+
+.lbCaja:has(.lbGaleria) .lbCerrar{
+    top: 0;
+    right: 0;
+}
+
+.lbCerrar:hover{
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.lbCerrar svg{
+    width: 24px;
+    height: 24px;
+}
+
+.lbPareja{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 28px;
+}
+
+.lbPareja figure,
+.lbSlide{
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.lbPareja figcaption,
+.lbSlide figcaption{
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-size: 48px;
+    color: #FFFFFF;
+    text-align: center;
+    max-width: 536px;
+    margin: 0 0 16px;
+}
+
+.lbPareja img,
+.lbSlide img{
+    display: block;
+    width: 536px;
+    height: auto;
+    border-radius: 4px;
+}
+
+.lbGhibli img{
+    width: 473px;
+    height: 631px;
+    object-fit: cover;
+}
+
+.lbFlechaCentro{
+    align-self: center;
+    width: 96px;
+    height: 96px;
+    display: grid;
+    place-items: center;
+    color: #FFFFFF;
+    flex-shrink: 0;
+}
+
+.lbFlechaCentro svg{
+    width: 96px;
+    height: 96px;
+}
+
+.lbGaleria{
+    display: flex;
+    align-items: center;
+    gap: 64px;
+}
+
+.lbSlides{
+    display: grid;
+}
+
+.lbSlide{
+    grid-area: 1 / 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.35s ease;
+}
+
+.lbSlide.activo{
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.lbFlecha{
+    width: 48px;
+    height: 48px;
+    display: grid;
+    place-items: center;
+    border: 0;
+    border-radius: 50%;
+    background-color: transparent;
+    color: #FFFFFF;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: background-color 0.25s ease;
+}
+
+.lbFlecha:hover{
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.lbFlecha svg{
+    width: 28px;
+    height: 28px;
+}
+
+.lbFlechaPrev svg{ transform: rotate(90deg); }
+.lbFlechaNext svg{ transform: rotate(-90deg); }
+
+.lbDisney figcaption{
+    font-size: 32px;
+    font-weight: 400;
+}
+
+.lbDisney figcaption strong{
+    font-weight: 700;
+}
+
+.tarjetaFlecha{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+
+    width: 100%;
+    margin: 0;
+    padding: 16px 0 0;
+
+    border: 0;
+    border-top: 2px solid #FFFFFF;
+    background-color: transparent;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+.tarjetaFlechaTexto{
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 24px;
+    color: #FFFFFF;
+}
+
+.tarjetaFlecha svg{
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    animation: latido 2.6s ease-in-out infinite;
+    transition: transform 0.5s var(--suave), background-color 0.3s ease;
+}
+
+.tarjetaFlecha:hover svg{
+    background-color: rgba(255, 255, 255, 0.15);
+    transform: rotate(180deg);
+}
+
+.tarjeta.abierta .tarjetaFlecha svg{
+    animation: none;
+    transform: rotate(180deg);
+}
+
+@keyframes latido{
+    0%, 100%{ transform: translateY(-2px); }
+    50%{ transform: translateY(3px); }
+}
+
+
+/*
+=======================================================
+                     SECCION 2
+=======================================================
+*/
+
+.contenedorTarjetas2{
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    justify-content: center;
+    align-items: stretch;
+    gap: clamp(16px, 2vw, 32px);
+    margin: clamp(20px, 2.6vw, 32px) 0;
+}
+
+.bloqueGrafico{
+    flex: 1 1 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: clamp(12px, 1.5vw, 20px);
+    margin: 0;
+    width: 100%;
+}
+
+.bloqueGrafico figcaption{
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 1.35;
+    letter-spacing: -0.02em;
+    text-align: center;
+    max-width: 940px;
+}
+
+
+/*
+=======================================================
+                     GRAFICOS
+=======================================================
+*/
+
+.grafico{
+
+    --panel: 412px;
+    --lineaCero: 311.25px;
+    --restoAbajo: 103.75px;
+
+    display: flex;
+    align-items: flex-start;
+    padding: 16px 0;
+    position: relative;
+
+}
+
+.graficoDoble,
+.graficoSimple{
+    width: fit-content;
+}
+
+.graficoEjeY{
+    width: 38px;
+    flex-shrink: 0;
+    height: 472px;
+    padding-top: 52px;
+    padding-right: 2px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 14px;
+    color: var(--tenue);
+    text-align: right;
+}
+
+.graficoPanel{
+    width: var(--panel);
+    flex-shrink: 0;
+}
+
+.tarjetaDetalle p.graficoTitulo{
+    width: var(--panel);
+    line-height: 1.3;
+}
+
+.graficoTitulo{
+    width: var(--panel);
+    margin: 0 0 12px;
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 1.3;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+.graficoSubtitulo{
+    display: block;
+    font-weight: 400;
+}
+
+.graficoArea{
+    position: relative;
+    width: var(--panel);
+    height: 415px;
+}
+
+.graficoRejilla span{
+    position: absolute;
+    left: 0;
+    right: 0;
+    border-top: 1px dashed rgba(255, 255, 255, 0.22);
+}
+
+.graficoRejilla span.cero{
+    border-top: 1px solid rgba(255, 255, 255, 0.75);
+}
+
+.graficoColumna{
+
+    position: absolute;
+    width: 119px;
+    height: 0;
+
+    border: 0;
+    border-radius: 6px 6px 4px 4px;
+    background-color: var(--violeta);
+    cursor: pointer;
+    padding: 0;
+
+    bottom: var(--restoAbajo);
+
+    transition: height 1.1s var(--suave), filter 0.3s ease, box-shadow 0.3s ease;
+
+}
+
+.graficoColumna:not(.negativa){ left: 75px; }
+
+.graficoColumna.negativa{
+    left: 218px;
+    top: var(--lineaCero);
+    bottom: auto;
+    border-radius: 4px 4px 6px 6px;
+    background-color: var(--naranja);
+}
+
+.graficoColumna.dibujada{
+    height: var(--alto);
+}
+
+.graficoColumna:hover,
+.graficoColumna:focus-visible{
+    filter: brightness(1.15);
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.35), 0 12px 30px -12px rgba(0, 0, 0, 0.9);
+}
+
+.graficoValor{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 4px;
+    text-align: center;
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-size: 16px;
+    color: #FFFFFF;
+    opacity: 0;
+    transition: opacity 0.4s ease 0.75s;
+}
+
+.graficoColumna.negativa .graficoValor{
+    top: auto;
+    bottom: 4px;
+}
+
+.graficoColumna.dibujada .graficoValor{
+    opacity: 1;
+}
+
+.graficoEtiquetasX{
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    width: var(--panel);
+    margin-top: 12px;
+}
+
+.graficoEtiquetasX span{
+    width: 119px;
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 20px;
+    color: #FFFFFF;
+    text-align: center;
+    line-height: 1.3;
+}
+
+.graficoGlobo{
+    position: absolute;
+    z-index: 3;
+    left: 0;
+    top: 0;
+    max-width: 240px;
+    padding: 10px 14px;
+    border-radius: 10px;
+    background-color: rgba(23, 15, 31, 0.96);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    box-shadow: 0 18px 40px -18px rgba(0, 0, 0, 0.95);
+    pointer-events: none;
+    opacity: 0;
+    transform: translate(-50%, calc(-100% - 2px));
+    transition: opacity 0.25s ease, transform 0.25s var(--suave);
+}
+
+.graficoGlobo.visible{
+    opacity: 1;
+    transform: translate(-50%, calc(-100% - 10px));
+}
+
+.graficoGlobo.abajo{
+    transform: translate(-50%, 2px);
+}
+
+.graficoGlobo.abajo.visible{
+    transform: translate(-50%, 10px);
+}
+
+.graficoGlobo.globoIcono{
+    width: 190px;
+    max-width: 190px;
+    transition: opacity 0.25s ease, transform 0.25s var(--suave), left 0.35s var(--suave), top 0.35s var(--suave);
+}
+
+.graficoGlobo strong{
+    display: block;
+    font-size: 16px;
+    line-height: 1.25;
+}
+
+.graficoGlobo span{
+    display: block;
+    font-size: 16px;
+    color: var(--tenue);
+    line-height: 1.3;
+}
+
+/*
+=======================================================
+        DONUTS (nucleo 2, caso 2)
+=======================================================
+*/
+
+.donuts{
+    display: flex;
+    justify-content: center;
+    gap: 70px;
+    padding-bottom: 28px;
+}
+
+.donut{
+    position: relative;
+    width: 277.68px;
+    height: 277.68px;
+    flex-shrink: 0;
+    cursor: pointer;
+}
+
+.donut:hover .donutValor,
+.donut:focus-visible .donutValor{
+    filter: brightness(1.15) drop-shadow(0 10px 22px rgba(0, 0, 0, 0.5));
+}
+
+.donut svg{
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}
+
+.donutBase{
+    fill: none;
+    stroke: var(--violetaOscuro);
+    stroke-width: 45px;
+    filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.35));
+}
+
+.donutValor{
+    fill: none;
+    stroke: var(--naranja);
+    stroke-width: 45px;
+    stroke-linecap: butt;
+    transform-origin: 138.84px 138.84px;
+    transform: scale(-1, 1) rotate(-90deg);
+    stroke-dasharray: 715.33px;
+    stroke-dashoffset: 715.33px;
+    filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.45));
+    transition: stroke-dashoffset 1.2s var(--suave), filter 0.3s ease;
+}
+
+.donut.dibujada .donutValor{
+    stroke-dashoffset: var(--offset);
+}
+
+.donutEtiqueta{
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-size: 20px;
+    fill: #FFFFFF;
+    text-anchor: middle;
+    dominant-baseline: middle;
+}
+
+.donutCentro{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120px;
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+}
+
+.donutIcono{
+    display: block;
+    width: 60px;
+    height: 60px;
+}
+
+.tarjetaDetalle p.donutCentroTexto{
+    width: auto;
+    max-width: 120px;
+    font-size: 18px;
+    line-height: 1.2;
+}
+
+.donutCentroTexto{
+    margin: 0;
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.2;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+.donutCentroTexto strong{
+    font-weight: 700;
+}
+
+.tarjeta2{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    align-items: center;
+
+    padding: clamp(22px, 2.6vw, 30px) clamp(24px, 3.4vw, 50px);
+    gap: clamp(10px, 1.4vw, 20px);
+
+    position: relative;
+    overflow: hidden;
+
+    background-color: var(--superficie);
+    border: 1px solid var(--borde);
+    border-radius: 16px;
+
+    width: min(440px, 100%);
+    min-height: 120px;
+
+    transition: transform 0.5s var(--suave), box-shadow 0.5s var(--suave), border-color 0.4s ease;
+
+}
+
+.tarjeta2:hover{
+    transform: translateY(-6px);
+    box-shadow: 0 24px 55px -24px rgba(0, 0, 0, 0.9);
+    border-color: rgba(163, 102, 190, 0.45);
+}
+
+.tarjeta2 h2{
+    margin: 0;
+    font-size: clamp(2rem, 4.4vw, 56px);
+    line-height: 1;
+}
+
+.tarjeta2 p{
+    margin: 0;
+    font-size: clamp(0.95rem, 1.5vw, 20px);
+    line-height: 1.35;
+}
+
+.tarjetaDato{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+
+    background: none;
+    border: 0;
+    padding: 0;
+    width: auto;
+    min-height: 0;
+    margin-top: 16px;
+}
+
+.pictogramaIconos{
+
+    display: grid;
+    grid-template-columns: repeat(5, auto);
+    justify-content: center;
+    position: relative;
+    gap: 8px;
+}
+
+.usuario{
+    --escala: 1;
+    position: relative;
+    display: block;
+    width: 64px;
+    height: 64px;
+    opacity: 0;
+    transform: scale(0.4);
+    cursor: pointer;
+}
+
+.usuario img{
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.usuario.afectado .base{
+    visibility: hidden;
+}
+
+.usuario .relleno{
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.usuario::after{
+    content: "";
+    position: absolute;
+    inset: -26%;
+    border-radius: 50%;
+    border: 2px solid var(--naranja);
+    opacity: 0;
+    transform: scale(0.5);
+    pointer-events: none;
+}
+
+.tarjetaDato.visible .usuario{
+    animation: aparecerIcono 0.55s var(--rebote) forwards;
+    animation-delay: calc(var(--indice, 0) * 70ms + 260ms);
+}
+
+.tarjetaDato.visible .usuario.puesto{
+    animation: none;
+    opacity: 1;
+    transform: scale(var(--escala));
+    transition: transform 0.45s var(--rebote), opacity 0.35s ease, filter 0.35s ease;
+}
+
+@keyframes aparecerIcono{
+    from{ opacity: 0; transform: scale(0.4); }
+    to{ opacity: 1; transform: scale(1); }
+}
+
+.tarjetaDato.visible .usuario.afectado::after{
+    animation: onda 0.95s var(--suave) forwards;
+    animation-delay: calc(var(--indice, 0) * 70ms + 620ms);
+}
+
+@keyframes onda{
+    0%{ opacity: 0.85; transform: scale(0.55); }
+    100%{ opacity: 0; transform: scale(1.5); }
+}
+
+.pictogramaIconos[data-resaltado="afectado"] .usuario[data-grupo="resto"],
+.pictogramaIconos[data-resaltado="resto"] .usuario[data-grupo="afectado"]{
+    opacity: 0.18;
+    filter: saturate(0.3);
+}
+
+.pictogramaIconos[data-resaltado="afectado"] .usuario[data-grupo="afectado"]{
+    --escala: 1.16;
+    filter: drop-shadow(0 0 20px rgba(201, 90, 62, 0.95));
+}
+
+.pictogramaIconos[data-resaltado="resto"] .usuario[data-grupo="resto"]{
+    --escala: 1.16;
+    filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.65));
+}
+
+.pictogramaPorcentaje{
+    margin: 0;
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-size: 48px;
+    color: var(--naranja);
+}
+
+.tarjetaDetalle p.pictogramaTexto{
+    width: auto;
+    max-width: 408px;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.pictogramaTexto{
+    margin: 0;
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 1.3;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+.tarjetaDetalle p.pictogramaPerdida{
+    width: auto;
+    max-width: 408px;
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+.pictogramaPerdida{
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 1.4;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+.pictogramaPerdida strong{
+    font-weight: 700;
+}
+
+.pictogramaPerdidaAprox{
+    color: rgba(255, 255, 255, 0.65);
+}
+
+.icono{
+
+    width: 48px;
+    height: auto;
+
+}
+
+
+/*
+=======================================================
+                     FLUJO
+=======================================================
+*/
+
+.flujo{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding-bottom: 28px;
+}
+
+.conectores{
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.trazo{
+    opacity: 0;
+    transition: opacity 0.25s ease;
+}
+
+.trazo.dibujado{
+    opacity: 1;
+}
+
+#conectoresTiempo .cnx{
+    stroke: #FFFFFF;
+    stroke-width: 4;
+}
+
+#conectoresTiempo .punta{
+    display: none;
+}
+
+#conectores .cnx{
+    stroke: #FFFFFF;
+    stroke-width: 4;
+}
+
+#conectores .punta{
+    fill: #FFFFFF;
+}
+
+.cnx{
+    fill: none;
+    stroke: var(--linea);
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    transition: stroke-dashoffset 0.85s var(--suave);
+}
+
+.trazo.dibujado .cnx{
+    stroke-dashoffset: 0;
+}
+
+.punta{
+    fill: var(--linea);
+    transform-box: fill-box;
+    transform-origin: center;
+    opacity: 0;
+    transform: scale(0.3);
+    transition: opacity 0.35s ease 0.65s, transform 0.45s var(--rebote) 0.65s;
+}
+
+.trazo.dibujado .punta{
+    opacity: 1;
+    transform: scale(1);
+}
+
+.nivel{
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.nodo{
+    font: inherit;
+    color: inherit;
+    text-align: center;
+    cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.etiqueta{
+    display: block;
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+}
+
+.pista{
+    display: block;
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-size: clamp(0.7rem, 0.9vw, 12px);
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.45);
+    transition: opacity 0.4s ease;
+}
+
+.nodoInicial{
+    overflow: visible;
+    width: 374px;
+    height: 144px;
+    padding: 16px;
+    gap: 8px;
+    background-color: var(--violetaOscuro);
+}
+
+.nodoInicial .etiqueta{
+    font-size: 24px;
+}
+
+.nodoIcono{
+    display: block;
+    width: 48px;
+    height: 48px;
+}
+
+.nodoInicial::after{
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: 16px;
+    border: 1px solid rgba(163, 102, 190, 0.9);
+    opacity: 0;
+    animation: pulsoNodo 2.8s ease-out infinite;
+    pointer-events: none;
+}
+
+.nodoInicial.activado::after{
+    animation: none;
+    opacity: 0;
+}
+
+.nodoInicial.activado .pista{
+    opacity: 0;
+}
+
+@keyframes pulsoNodo{
+    0%{ opacity: 0.9; transform: scale(1); }
+    70%{ opacity: 0; transform: scale(1.06); }
+    100%{ opacity: 0; transform: scale(1.06); }
+}
+
+.ramas{
+    display: grid;
+    grid-template-rows: 0fr;
+    width: 100%;
+    margin: 0;
+    transition: grid-template-rows 0.65s var(--suave), margin 0.65s var(--suave);
+}
+
+.ramasInterior{
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    gap: 162px;
+    opacity: 0;
+    transform: translateY(-14px);
+    transition: opacity 0.5s ease 0.1s, transform 0.5s var(--suave) 0.1s;
+}
+
+.ramas.visible{
+    grid-template-rows: 1fr;
+    margin: var(--espacioFlujo) 0 0;
+}
+
+.ramas.visible .ramasInterior{
+    opacity: 1;
+    transform: none;
+}
+
+.ramas.abierto .ramasInterior{
+    overflow: visible;
+}
+
+.tarjetaVerde,
+.tarjetaRoja{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: 16px;
+    gap: 8px;
+
+    position: relative;
+    overflow: hidden;
+
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 16px;
+
+    width: 374px;
+    height: 144px;
+
+    transition: transform 0.5s var(--suave), box-shadow 0.5s var(--suave);
+
+}
+
+.tarjetaVerde{
+    background-color: var(--violetaOscuro);
+}
+
+.tarjetaRoja{
+    background-color: var(--naranja);
+}
+
+.tarjetaVerde:hover,
+.tarjetaRoja:hover{
+    transform: translateY(-6px);
+    box-shadow: 0 22px 50px -20px rgba(0, 0, 0, 0.9);
+}
+
+.detalle{
+    display: grid;
+    grid-template-rows: 0fr;
+    width: 100%;
+    opacity: 0;
+    transition: grid-template-rows 0.5s var(--suave), opacity 0.4s ease;
+}
+
+.detalle .resaltado3{
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.detalle > *{
+    display: block;
+    overflow: hidden;
+}
+
+.nodoRama.revelado .detalle{
+    grid-template-rows: 1fr;
+    opacity: 1;
+}
+
+.nivelFinal{
+    display: grid;
+    grid-template-rows: 0fr;
+    width: 100%;
+    margin-top: 0;
+    transition: grid-template-rows 0.65s var(--suave), margin-top 0.65s var(--suave);
+}
+
+.finalInterior{
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    opacity: 0;
+    transform: translateY(-14px);
+    transition: opacity 0.5s ease 0.12s, transform 0.5s var(--suave) 0.12s;
+}
+
+.nivelFinal.visible{
+    grid-template-rows: 1fr;
+    margin-top: var(--espacioFlujo);
+}
+
+.nivelFinal.visible .finalInterior{
+    opacity: 1;
+    transform: none;
+}
+
+.nivelFinal.abierto .finalInterior{
+    overflow: visible;
+}
+
+.nodoFinal{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+
+    width: 374px;
+    height: 164px;
+    padding: 16px;
+    background-color: var(--naranja);
+}
+
+.nodoFinal h2{
+    margin: 0;
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-size: 42px;
+    color: #FFFFFF;
+}
+
+.tarjetaDetalle p.nodoFinalTexto{
+    width: auto;
+    max-width: 342px;
+    line-height: 1.3;
+    text-align: center;
+}
+
+.nodoFinal p{
+    margin: 0;
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 1.3;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+
+/*
+=======================================================
+                     SECCION 3
+=======================================================
+*/
+
+.seccion3 nav ol{
+
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-size: 20px;
+
+    padding-left: 1.4em;
+    margin: 0 0 clamp(18px, 2.4vw, 28px);
+
+}
+
+.seccion3 h3,
+.seccion3 nav,
+.seccion3 ol,
+.seccion3 li{
+
+    text-align: left;
+
+}
+
+.seccion3 h3{
+    margin: clamp(14px, 2vw, 22px) 0 clamp(8px, 1.2vw, 16px);
+}
+
+.seccion3 h3:first-of-type{
+    margin-top: 0;
+}
+
+.seccion3 h3:last-of-type{
+    margin-top: 32px;
+}
+
+.seccion3 li{
+    margin-bottom: 16px;
+    line-height: 1.45;
+    font-size: 20px;
+    letter-spacing: 0em;
+}
+
+.seccion3 li::marker{
+    color: #FFFFFF;
+    font-weight: 600;
+    letter-spacing: 0em;
+}
+
+.seccion3 nav a{
+    color: var(--violeta);
+
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-size: 20px;
+
+    letter-spacing: 0em;
+
+    text-decoration: underline;
+    text-decoration-color: currentColor;
+    text-underline-offset: 2px;
+
+    transition: color 0.4s ease;
+
+}
+
+.seccion3 nav a:hover,
+.seccion3 nav a:focus-visible{
+    color: var(--violetaClaro); 
+}
+
+.palabra-resaltada {
+    color: #A366BE;
+    text-decoration:underline; 
+}
+
+
+/*
+=======================================================
+                     FOOTER
+=======================================================
+*/
+
+footer{
+    display: flex;
+    justify-content: center;
+    padding: clamp(44px, 6vw, 90px) clamp(16px, 4vw, 40px) clamp(32px, 4vw, 56px);
+}
+
+footer p{
+    margin: 0;
+    font-size: clamp(0.8rem, 1vw, 14px);
+    color: rgba(255, 255, 255, 0.32);
+    letter-spacing: 0.02em;
+}
+
+
+/*
+=======================================================
+                     INTERFAZ
+=======================================================
+*/
+
+.progresoScroll{
+    position: fixed;
+    inset: 0 0 auto 0;
+    height: 3px;
+    background-color: rgba(255, 255, 255, 0.06);
+    z-index: 90;
+}
+
+.progresoScroll span{
+    display: block;
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--violeta), var(--violetaClaro));
+    box-shadow: 0 0 14px rgba(163, 102, 190, 0.9);
+}
+
+.subir{
+    position: fixed;
+    right: clamp(14px, 2vw, 32px);
+    bottom: clamp(14px, 2vw, 32px);
+
+    display: grid;
+    place-items: center;
+
+    width: 48px;
+    height: 48px;
+
+    border: 1px solid var(--borde);
+    border-radius: 50%;
+    background-color: rgba(61, 44, 78, 0.85);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    color: white;
+    cursor: pointer;
+
+    opacity: 0;
+    transform: translateY(14px) scale(0.9);
+    pointer-events: none;
+
+    transition: opacity 0.4s ease, transform 0.4s var(--suave), background-color 0.3s ease;
+    z-index: 90;
+}
+
+.subir.visible{
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+}
+
+.subir:hover{
+    background-color: var(--violeta);
+}
+
+.subir svg{
+    width: 22px;
+    height: 22px;
+}
+
+
+/*
+=======================================================
+                     REVELADO
+=======================================================
+*/
+
+[data-revelar]{
+    opacity: 0;
+}
+
+[data-revelar].visible{
+    animation: aparecer 0.9s var(--suave) both;
+    animation-delay: var(--retraso, 0ms);
+}
+
+[data-revelar].listo{
+    animation: none;
+    opacity: 1;
+}
+
+@keyframes aparecer{
+    from{
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/*
+=======================================================
+                     RESPONSIVE
+=======================================================
+*/
+
+@media (max-height: 760px){
+
+    :root{
+        --offsetPortada: 353px;
+    }
+
+    h1{
+        font-size: 72px;
+    }
+
+    .manoWrap{
+        height: clamp(320px, calc(100vh - var(--offsetPortada)), 682px);
+    }
+
+    .salto-760 {
+        display: inline;
+    }
+
+}
+
+@media (max-width: 900px){
+
+    .contenedorTarjetas{
+        grid-template-columns: 1fr;
+    }
+
+    .contenedorTarjetas .tarjeta:nth-child(even){
+        margin-top: 0;
+    }
+
+    .manoWrap{
+        height: min(420px, 60vw);
+    }
+
+    .intro{
+        -webkit-backdrop-filter: none;
+        backdrop-filter: none;
+    }
+
+}
+
+@media (max-width: 620px){
+
+    .tarjeta2,
+    .nodoFinal{
+        width: 100%;
+        padding-left: clamp(16px, 5vw, 24px);
+        padding-right: clamp(16px, 5vw, 24px);
+    }
+
+    .ramasInterior{
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .tarjetaVerde,
+    .tarjetaRoja{
+        width: 100%;
+        padding: 18px 12px;
+        gap: 6px;
+    }
+
+    .tarjetaVerde .etiqueta,
+    .tarjetaRoja .etiqueta{
+        font-size: 0.95rem;
+    }
+
+    .tarjetaVerde .resaltado3,
+    .tarjetaRoja .resaltado3{
+        font-size: 0.75rem;
+        line-height: 1.3;
+    }
+
+    .contSeccion1,
+    .contSeccion2,
+    .contSeccion3{
+        padding: 18px 14px;
+    }
+
+    .icono{
+        width: 40px;
+    }
+
+    .grafico{
+        --altoBarra: 32px;
+        padding: 14px 12px;
+    }
+
+    .graficoSerie{
+        grid-template-columns: minmax(0, 1fr);
+        row-gap: 6px;
+    }
+
+    .graficoEje{
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .graficoMarcas{
+        grid-column: 1;
+    }
+
+    .graficoEtiqueta{
+        text-align: left;
+    }
+
+    .subir{
+        width: 42px;
+        height: 42px;
+    }
+
+}
+
+@media (hover: none){
+
+    .tarjeta:hover{
+        --ty: 0px;
+    }
+
+    .tarjeta:hover .tarjetaMedia img{
+        transform: none;
+    }
+
+}
+
+
+/*
+=======================================================
+                MOVIMIENTO REDUCIDO
+=======================================================
+*/
+
+@media (prefers-reduced-motion: reduce){
+
+    html{
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after{
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    [data-revelar],
+    .usuario,
+    .palabra{
+        opacity: 1 !important;
+        transform: none !important;
+    }
+
+    .usuario .relleno{
+        clip-path: inset(0 0 0 0);
+    }
+
+    .usuario::after{
+        display: none;
+    }
+
+    .trazo{
+        opacity: 1;
+    }
+
+    .cnx{
+        stroke-dashoffset: 0;
+    }
+
+    .punta{
+        opacity: 1;
+        transform: none;
+    }
+
+}
+
+/*
+=======================================================
+        TARJETAS DE DATOS (nucleo 2)
+=======================================================
+*/
+
+.contenedorTarjetas3{
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    width: 1134px;
+    margin: 0 auto;
+}
+
+.tarjeta3{
+    width: 1134px;
+    min-height: 312px;
+    max-height: 312px;
+}
+
+.tarjetaCabecera{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.tarjetaPortadaWrap{
+    width: 293px;
+    height: 168px;
+    border-radius: 12px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.tarjetaPortada2{
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.9s var(--suave);
+}
+
+.tarjeta3:hover .tarjetaPortada2{
+    transform: scale(1.06);
+}
+
+.tarjetaTexto2{
+    width: 555px;
+    flex-shrink: 0;
+}
+
+.tarjetaTitulo2{
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 1.4;
+    color: #FFFFFF;
+    text-align: left;
+    margin: 0 0 4px;
+}
+
+.tarjetaFecha2{
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 1.5;
+    color: #FFFFFF;
+    text-align: left;
+    margin: 0 0 2px;
+}
+
+.tarjetaAutores2{
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 1.8;
+    color: rgba(255, 255, 255);
+    text-align: left;
+    margin: 0;
+}
+
+.tarjetaDato2{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: right;
+}
+
+.datoGrande{
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 1.1;
+    margin: 0;
+}
+
+.datoGrande.violeta{ color: var(--violeta); }
+.datoGrande.naranja{ color: var(--naranja); }
+
+.datoTexto{
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 1.3;
+    color: #FFFFFF;
+    margin: 4px 0 0;
+}
+
+.datoTexto strong{
+    font-weight: 700;
+    color: var(--naranja);
+}

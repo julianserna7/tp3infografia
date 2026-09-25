@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#170F1F">
+    <meta name="description" content="Infografía sobre el impacto de la inteligencia artificial generativa en el diseño y el arte digital: las demandas por derechos de autor y las consecuencias en el trabajo de ilustradores, diseñadores y modeladores 3D.">
+
+    <title>El Impacto de la IA en el diseño y arte digital</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./estilos.css">
+</head>
+<body>
+
+    <div class="progresoScroll" aria-hidden="true"><span id="barraProgreso"></span></div>
+
+    <div class="destello" aria-hidden="true"></div>
+
+    <svg class="sprite" aria-hidden="true" focusable="false">
+        <symbol id="icoChevron" viewBox="0 0 24 24">
+            <path d="M5 9l7 7 7-7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+        </symbol>
+        <symbol id="icoFlechaArriba" viewBox="0 0 24 24">
+            <path d="M12 19V5M5 12l7-7 7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </symbol>
+        <symbol id="icoLupa" viewBox="0 0 24 24">
+            <circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2.2"/>
+            <path d="M19.5 19.5l-4.2-4.2" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+        </symbol>
+        <symbol id="icoX" viewBox="0 0 24 24">
+            <path d="M5 5l14 14M19 5L5 19" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+        </symbol>
+        <symbol id="icoFlecha" viewBox="0 0 24 24">
+            <path d="M3 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </symbol>
+    </svg>
+
+    <!--
+    ==================================================
+                         HEADER
+    ==================================================
+    -->
+
+    <header>
+
+        <h1 class="tituloPrincipal">El impacto de la <span class="resaltado2">IA</span> en<br>el diseño y el arte digital</h1>
+
+    </header>
+
+    <!--
+    ==================================================
+                    MAIN Y SECCIONES
+    ==================================================
+    -->
+
+    <main>
+
+        <!--                           PORTADA                               -->
+
+        <section class="portada">
+
+            <h3 data-revelar>Un viaje por las disputas legales del arte digital<br class="salto-760">y su nuevo mapa laboral</h3>
+
+            <div class="manoWrap">
+                <div class="manoMovil" data-parallax="0.07">
+                    <img src="./img/Mano.png" class="mano" alt="Mano robótica sosteniendo un destello de luz" width="1397" height="1364" fetchpriority="high" decoding="async">
+                </div>
+            </div>
+
+            <div class="intro">
+
+                <div data-revelar>
+                  <p>Esta infografía interactiva recorre el impacto de la <span class="resaltado">generación de imágenes </span>con distintas <span class="resaltado">inteligencias artificiales</span> en el diseño y el arte digital, a través de dos ejes:</p>
+                </div>
+
+                <div class="bloque-completo" data-revelar>
+
+                    <div class="columna">
+                        <img src="img/ImagenDemandas.png" alt="imagen de demandas">
+                        <p>Las <span class="resaltado">demandas judiciales</span> que enfrentan las empresas de IA por el uso no autorizado de obras </p>
+                    </div>
+
+                    <div class="columna">
+                        <img src="img/ImagenConsecuencias.png" alt="Imagen de Consecuencias en el diseño">
+                        <p>Las <span class="resaltado">consecuencias reales</span> para el <span class="resaltado">trabajo</span> de los ilustradores, diseñadores y modeladores 3D</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ====================================================
+                                     SECCION 1
+            ========================================================-->
+
+        <section class="seccion1">
+
+            <div class="contSeccion1">
+
+                <h2 data-revelar>Demandas por derechos de autor</h2>
+
+                <p class="bajada" data-revelar>La IA generativa requiere billones de obras humanas para entrenarse; Esto dio inicio a la batalla judicial más grande de la era digital sobre propiedad intelectual:</p>
+
+                <div class="contenedorTarjetas" id="lineaTiempo">
+
+                    <svg class="conectores" id="conectoresTiempo" aria-hidden="true" focusable="false"></svg>
+
+                    <article class="tarjeta" data-revelar>
+                        <h4 class="tarjetaTitulo">Sarah Andersen vs Stability AI</h4>
+                        <div class="tarjetaMedia">
+                            <img src="img/tarjeta1.png" alt="Sarah Andersen junto al logotipo de Stability AI" width="468" height="268" loading="lazy" decoding="async">
+                        </div>
+                        <div class="tarjetaDetalle" id="caso1">
+                            <div>
+                                <p class="separado">En <span class="resaltado">enero de 2023</span>, <span class="resaltado">Sarah Andersen</span> demandó a Stability AI, Midjourney y DeviantArt por entrenar sus modelos con millones de imágenes de Internet, entre ellas obras suyas, sin consentimiento ni compensación.</p>
+                                <div class="galeria galeriaSarah" data-lightbox="lb-sarah">
+                                    <div class="miniatura">
+                                        <p class="miniaturaTitulo">Ilustración original</p>
+                                        <button type="button" class="miniaturaImg">
+                                            <img src="img/sarah-original.png" alt="Ilustración original de Sarah Andersen" loading="lazy" decoding="async">
+                                            <span class="lupaChica" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#icoLupa"/></svg></span>
+                                            <span class="hoverAmpliar" aria-hidden="true">
+                                                <svg viewBox="0 0 24 24"><use href="#icoLupa"/></svg>
+                                                <span>Ampliar</span>
+                                            </span>
+                                        </button>
+                                    </div>
+                                    <div class="miniatura">
+                                        <p class="miniaturaTitulo">Imitación de la IA</p>
+                                        <button type="button" class="miniaturaImg">
+                                            <img src="img/sarah-ia.png" alt="Imitación con IA del estilo de Sarah Andersen" loading="lazy" decoding="async">
+                                            <span class="lupaChica" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#icoLupa"/></svg></span>
+                                            <span class="hoverAmpliar" aria-hidden="true">
+                                                <svg viewBox="0 0 24 24"><use href="#icoLupa"/></svg>
+                                                <span>Ampliar</span>
+                                            </span>
+                                        </button>
+                                    </div>
+                                </div>
+                                <template id="lb-sarah">
+                                    <div class="lbPareja">
+                                        <figure>
+                                            <figcaption>Ilustración original</figcaption>
+                                            <img src="img/sarah-original.png" alt="Ilustración original de Sarah Andersen">
+                                        </figure>
+                                        <figure>
+                                            <figcaption>Imitación de la IA</figcaption>
+                                            <img src="img/sarah-ia.png" alt="Imitación con IA del estilo de Sarah Andersen">
+                                        </figure>
+                                    </div>
+                                </template>
+                                <p>En <span class="resaltado">octubre de 2023</span> el juez descartó casi todos los reclamos y, en copyright, dejó seguir solo el de Andersen, la única con obras registradas. </p>
+                                <p>En <span class="resaltado">agosto de 2024</span>, un fallo permitió avanzar el reclamo por infracción directa. Es una de las primeras demandas colectivas de artistas contra la IA generativa. El juicio sigue en curso y fue <span class="resaltado">reprogramado a abril de 2027.</span></p>
+                            </div>
+                        </div>
+                        <button type="button" class="tarjetaFlecha" aria-expanded="false" aria-controls="caso1" aria-label="Ver más sobre el caso Sarah Andersen vs Stability AI">
+                            <span class="tarjetaFlechaTexto">Ver más</span>
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icoChevron"/></svg>
+                        </button>
+                    </article>
+                    
+
+                    <article class="tarjeta" data-revelar>
+                        <h4 class="tarjetaTitulo">Getty Images vs Stability AI</h4>
+                        <div class="tarjetaMedia">
+                            <img src="img/tarjeta2.png" alt="Logotipos de Stability AI y Getty Images" width="468" height="268" loading="lazy" decoding="async">
+                        </div>
+                        <div class="tarjetaDetalle" id="caso2">
+                            <div>
+                                <p>En <span class="resaltado">enero de 2023</span>, Getty Images demandó a Stability AI en el Reino Unido por usar su banco de imágenes, sin autorización, para entrenar su modelo de AI generativa Stable Difusión.</p>
+                                <div class="galeria galeriaGettyFoto" data-lightbox="lb-getty-foto">
+                                    <div class="miniatura">
+                                        <p class="miniaturaTitulo">Foto original</p>
+                                        <button type="button" class="miniaturaImg">
+                                            <img src="img/getty-foto-original.png" alt="Fotografía original usada por Getty Images" loading="lazy" decoding="async">
+                                            <span class="lupaChica" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#icoLupa"/></svg></span>
+                                            <span class="hoverAmpliar" aria-hidden="true">
+                                                <svg viewBox="0 0 24 24"><use href="#icoLupa"/></svg>
+                                                <span>Ampliar</span>
+                                            </span>
+                                        </button>
+                                    </div>
+                                    <div class="miniatura">
+                                        <p class="miniaturaTitulo">Imitación de la IA</p>
+                                        <button type="button" class="miniaturaImg">
+                                            <img src="img/getty-foto-ia.png" alt="Imitación con IA de la fotografía de Getty Images" loading="lazy" decoding="async">
+                                            <span class="lupaChica" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#icoLupa"/></svg></span>
+                                            <span class="hoverAmpliar" aria-hidden="true">
+                                                <svg viewBox="0 0 24 24"><use href="#icoLupa"/></svg>
+                                                <span>Ampliar</span>
+                                            </span>
+                                        </button>
+                                    </div>
+                                </div>
+                                <template id="lb-getty-foto">
+                                    <div class="lbPareja">
+                                        <figure>
+                                            <figcaption>Foto original</figcaption>
+                                            <img src="img/getty-foto-original.png" alt="Fotografía original usada por Getty Images">
+                                        </figure>
+                                        <figure>
+                                            <figcaption>Imitación de la IA</figcaption>
+                                            <img src="img/getty-foto-ia.png" alt="Imitación con IA de la fotografía de Getty Images">
+                                        </figure>
+                                    </div>
+                                </template>
+                                <p>En <span class="resaltado">noviembre de 2025</span>, la jueza emitió un fallo parcial: no evaluó la legalidad del entrenamiento por falta de pruebas y rechazó la demanda de copyrigth porque el modelo no guarda copias. Solo admitió una infracción de marca menor por la aparición de marcas de agua antiguas.</p>
+                                <div class="galeria galeriaGettyMarca" data-lightbox="lb-getty-marca">
+                                    <div class="miniatura">
+                                        <p class="miniaturaTitulo">Marca original</p>
+                                        <button type="button" class="miniaturaImg fina">
+                                            <img src="img/getty-marca-original.png" alt="Marca de agua original de Getty Images" loading="lazy" decoding="async">
+                                            <span class="lupaChica" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#icoLupa"/></svg></span>
+                                            <span class="hoverAmpliar" aria-hidden="true">
+                                                <svg viewBox="0 0 24 24"><use href="#icoLupa"/></svg>
+                                                <span>Ampliar</span>
+                                            </span>
+                                        </button>
+                                    </div>
+                                    <div class="miniatura">
+                                        <p class="miniaturaTitulo">Imitación de la IA</p>
+                                        <button type="button" class="miniaturaImg fina">
+                                            <img src="img/getty-marca-ia.png" alt="Imitación con IA de la marca de agua de Getty Images" loading="lazy" decoding="async">
+                                            <span class="lupaChica" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#icoLupa"/></svg></span>
+                                            <span class="hoverAmpliar" aria-hidden="true">
+                                                <svg viewBox="0 0 24 24"><use href="#icoLupa"/></svg>
+                                                <span>Ampliar</span>
+                                            </span>
+                                        </button>
+                                    </div>
+                                </div>
+                                <template id="lb-getty-marca">
+                                    <div class="lbPareja">
+                                        <figure>
+                                            <figcaption>Marca original</figcaption>
+                                            <img src="img/getty-marca-original.png" alt="Marca de agua original de Getty Images">
+                                        </figure>
+                                        <figure>
+                                            <figcaption>Imitación de la IA</figcaption>
+                                            <img src="img/getty-marca-ia.png" alt="Imitación con IA de la marca de agua de Getty Images">
+                                        </figure>
+                                    </div>
+                                </template>
+                                <p>En <span class="resaltado">diciembre de 2025</span>, la jueza autorizó a Getty a apelar el rechazo del reclamo de copyrigth; la apelación sigue pendiente.</p>
+                            </div>
+                        </div>
+                        <button type="button" class="tarjetaFlecha" aria-expanded="false" aria-controls="caso2" aria-label="Ver más sobre el caso Getty Images vs Stability AI">
+                            <span class="tarjetaFlechaTexto">Ver más</span>
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icoChevron"/></svg>
+                        </button>
+                    </article>
+
+                    <article class="tarjeta" data-revelar>
+                        <h4 class="tarjetaTitulo">Caso Zarya of the Dawn</h4>
+                        <div class="tarjetaMedia">
+                            <img src="img/tarjeta3.png" alt="Autora sosteniendo el cómic Zarya of the Dawn" width="468" height="268" loading="lazy" decoding="async">
+                        </div>
+                        <div class="tarjetaDetalle" id="caso3">
+                            <div>
+                                <p>En <span class="resaltado">septiembre de 2022</span>, Kris Kashtanova publicó Zarya of the Dawn, el primer cómic ilustrado con imágenes generadas con IA, con el modelo de Midjourney.</p>
+                                <div class="galeria galeriaZarya" data-lightbox="lb-zarya">
+                                    <button type="button" class="miniaturaImg">
+                                        <img src="img/zarya-1.png" alt="Portada del cómic Zarya of the Dawn" loading="lazy" decoding="async">
+                                        <span class="lupaChica" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#icoLupa"/></svg></span>
+                                        <span class="hoverAmpliar" aria-hidden="true">
+                                            <svg viewBox="0 0 24 24"><use href="#icoLupa"/></svg>
+                                            <span>Ampliar</span>
+                                        </span>
+                                    </button>
+                                    <button type="button" class="miniaturaImg">
+                                        <img src="img/zarya-2.png" alt="Página 1 del cómic Zarya of the Dawn" loading="lazy" decoding="async">
+                                        <span class="lupaChica" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#icoLupa"/></svg></span>
+                                        <span class="hoverAmpliar" aria-hidden="true">
+                                            <svg viewBox="0 0 24 24"><use href="#icoLupa"/></svg>
+                                            <span>Ampliar</span>
+                                        </span>
+                                    </button>
+                                    <button type="button" class="miniaturaImg">
+                                        <img src="img/zarya-3.png" alt="Página 14 del cómic Zarya of the Dawn" loading="lazy" decoding="async">
+                                        <span class="lupaChica" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#icoLupa"/></svg></span>
+                                        <span class="hoverAmpliar" aria-hidden="true">
+                                            <svg viewBox="0 0 24 24"><use href="#icoLupa"/></svg>
+                                            <span>Ampliar</span>
+                                        </span>
+                                    </button>
+                                </div>
+                                <template id="lb-zarya">
+                                    <div class="lbGaleria">
+                                        <button type="button" class="lbFlecha lbFlechaPrev" aria-label="Imagen anterior"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icoChevron"/></svg></button>
+                                        <div class="lbSlides">
+                                            <figure class="lbSlide">
+                                                <figcaption>Portada del cómic</figcaption>
+                                                <img src="img/zarya-1.png" alt="Portada del cómic Zarya of the Dawn">
+                                            </figure>
+                                            <figure class="lbSlide">
+                                                <figcaption>Página 1 del cómic</figcaption>
+                                                <img src="img/zarya-2.png" alt="Página 1 del cómic Zarya of the Dawn">
+                                            </figure>
+                                            <figure class="lbSlide">
+                                                <figcaption>Página 14 del cómic</figcaption>
+                                                <img src="img/zarya-3.png" alt="Página 14 del cómic Zarya of the Dawn">
+                                            </figure>
+                                        </div>
+                                        <button type="button" class="lbFlecha lbFlechaNext" aria-label="Imagen siguiente"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icoChevron"/></svg></button>
+                                    </div>
+                                </template>
+                                <p>En el mismo mes del lanzamiento del cómic, la Oficina del Copyrigth de EE.UU. lo registró; al enterarse de que las imágenes eran de Midjourney, revisó su decisión y, el <span class="resaltado">21 de febrero de 2023</span>, resolvió que esas imágenes no tienen copyrigth propio, aunque sí el texto y la disposición de los elementos, hechos por la autora humana. </p>
+                            </div>
+                        </div>
+                        <button type="button" class="tarjetaFlecha" aria-expanded="false" aria-controls="caso3" aria-label="Ver más sobre el caso Zarya of the Dawn">
+                            <span class="tarjetaFlechaTexto">Ver más</span>
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icoChevron"/></svg>
+                        </button>
+                    </article>
+
+                    <article class="tarjeta" data-revelar>
+                        <h4 class="tarjetaTitulo">Efecto Ghibli de ChatGPT</h4>
+                        <div class="tarjetaMedia">
+                            <img src="img/tarjeta4.png" alt="Logo de ChatGPT y STUDIO GHIBLI" width="468" height="268" loading="lazy" decoding="async">
+                        </div>
+                        <div class="tarjetaDetalle" id="caso4">
+                            <div>
+                                <p>El <span class="resaltado">25 de marzo de 2025</span>, Open AI lanzó la generación de imágenes de ChatGPT y en pocos días las redes se llenaron de fotos al estilo del estudio Ghibli. Sam Altman, director ejecutivo de OpenAI, dijo que los procesadores se estaban "derritiendo" por la demanda. Abajo, un <span class="resaltado">ejemplo con una foto de Messi:</span></p>
+                                <div class="galeria galeriaGhibli" data-lightbox="lb-ghibli">
+                                    <div class="miniatura">
+                                        <p class="miniaturaTitulo">Foto real</p>
+                                        <button type="button" class="miniaturaImg">
+                                            <img src="img/ghibli-antes.png" alt="Foto real, sin editar" loading="lazy" decoding="async">
+                                            <span class="lupaChica" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#icoLupa"/></svg></span>
+                                            <span class="hoverAmpliar" aria-hidden="true">
+                                                <svg viewBox="0 0 24 24"><use href="#icoLupa"/></svg>
+                                                <span>Ampliar</span>
+                                            </span>
+                                        </button>
+                                    </div>
+                                    <span class="flechaGhibli" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#icoFlecha"/></svg></span>
+                                    <div class="miniatura">
+                                        <p class="miniaturaTitulo">Versión de ChatGPT</p>
+                                        <button type="button" class="miniaturaImg">
+                                            <img src="img/ghibli-despues.png" alt="Versión generada por ChatGPT al estilo Studio Ghibli" loading="lazy" decoding="async">
+                                            <span class="lupaChica" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#icoLupa"/></svg></span>
+                                            <span class="hoverAmpliar" aria-hidden="true">
+                                                <svg viewBox="0 0 24 24"><use href="#icoLupa"/></svg>
+                                                <span>Ampliar</span>
+                                            </span>
+                                        </button>
+                                    </div>
+                                </div>
+                                <template id="lb-ghibli">
+                                    <div class="lbPareja lbGhibli">
+                                        <figure>
+                                            <figcaption>Foto real</figcaption>
+                                            <img src="img/ghibli-antes.png" alt="Foto real, sin editar">
+                                        </figure>
+                                        <span class="lbFlechaCentro" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#icoFlecha"/></svg></span>
+                                        <figure>
+                                            <figcaption>Versión de ChatGPT</figcaption>
+                                            <img src="img/ghibli-despues.png" alt="Versión generada por ChatGPT al estilo Studio Ghibli">
+                                        </figure>
+                                    </div>
+                                </template>
+                                <p>Open AI había limitado la imitación de artistas vivos, pero permitía estilos de estudios enteros. Este caso llevó la discusión sobre la propiedad intelectual a la cultura popular masiva. </p>
+                            </div>
+                        </div>
+                        <button type="button" class="tarjetaFlecha" aria-expanded="false" aria-controls="caso4" aria-label="Ver más sobre el efecto Ghibli de ChatGPT">
+                            <span class="tarjetaFlechaTexto">Ver más</span>
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icoChevron"/></svg>
+                        </button>
+                    </article>
+
+                    <article class="tarjeta" data-revelar>
+                        <h4 class="tarjetaTitulo">Disney-Universal vs Midjourney</h4>
+                        <div class="tarjetaMedia">
+                            <img src="img/tarjeta5.png" alt="Logotipos de Disney, Universal y Midjourney" width="468" height="268" loading="lazy" decoding="async">
+                        </div>
+                        <div class="tarjetaDetalle" id="caso5">
+                            <div>
+                                <p>En <span class="resaltado">junio de 2025</span>, Disney y Universal (con Marvel, Lucasfilm y otras filiales) demandaron a Midjourney por generar versiones casi idénticas de personajes a partir de prompts simples.</p>
+                                <p class="galeriaDisneyTitulo">Ejemplos generados con Midjourney</p>
+                                <div class="galeria galeriaDisney" data-lightbox="lb-disney">
+                                    <button type="button" class="miniaturaImg">
+                                        <img src="img/disney-1.png" alt="WALL-E generado con Midjourney" loading="lazy" decoding="async">
+                                        <span class="lupaChica" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#icoLupa"/></svg></span>
+                                        <span class="hoverAmpliar" aria-hidden="true">
+                                            <svg viewBox="0 0 24 24"><use href="#icoLupa"/></svg>
+                                            <span>Ampliar</span>
+                                        </span>
+                                    </button>
+                                    <button type="button" class="miniaturaImg">
+                                        <img src="img/disney-2.png" alt="Shrek generado con Midjourney" loading="lazy" decoding="async">
+                                        <span class="lupaChica" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#icoLupa"/></svg></span>
+                                        <span class="hoverAmpliar" aria-hidden="true">
+                                            <svg viewBox="0 0 24 24"><use href="#icoLupa"/></svg>
+                                            <span>Ampliar</span>
+                                        </span>
+                                    </button>
+                                    <button type="button" class="miniaturaImg">
+                                        <img src="img/disney-3.png" alt="Stormtroopers generados con Midjourney" loading="lazy" decoding="async">
+                                        <span class="lupaChica" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#icoLupa"/></svg></span>
+                                        <span class="hoverAmpliar" aria-hidden="true">
+                                            <svg viewBox="0 0 24 24"><use href="#icoLupa"/></svg>
+                                            <span>Ampliar</span>
+                                        </span>
+                                    </button>
+                                </div>
+                                <template id="lb-disney">
+                                    <div class="lbGaleria lbDisney">
+                                        <button type="button" class="lbFlecha lbFlechaPrev" aria-label="Imagen anterior"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icoChevron"/></svg></button>
+                                        <div class="lbSlides">
+                                            <figure class="lbSlide">
+                                                <figcaption><strong>WALL-E (Pixar/Disney)</strong><br>generado con Midjourney</figcaption>
+                                                <img src="img/disney-1.png" alt="WALL-E generado con Midjourney">
+                                            </figure>
+                                            <figure class="lbSlide">
+                                                <figcaption><strong>Shrek (DreamWorks/Universal)</strong><br>generado con Midjourney</figcaption>
+                                                <img src="img/disney-2.png" alt="Shrek generado con Midjourney">
+                                            </figure>
+                                            <figure class="lbSlide">
+                                                <figcaption><strong>Stormtroopers (Lucasfilm/Disney)</strong><br>generados con Midjourney</figcaption>
+                                                <img src="img/disney-3.png" alt="Stormtroopers generados con Midjourney">
+                                            </figure>
+                                        </div>
+                                        <button type="button" class="lbFlecha lbFlechaNext" aria-label="Imagen siguiente"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icoChevron"/></svg></button>
+                                    </div>
+                                </template>
+                                <p>En <span class="resaltado">septiembre de 2025</span> se sumó Warner Bros. Discovery con una demanda similar. Midjourney sostiene que es uso legítimo. Los estudios piden hasta US$150.000 por cada obra infrigida de forma intencional.</p>
+                                <p>La etapa de pruebas cierra en <span class="resaltado">septiembre de 2026</span> y las menciones de juicio sumario vencen el 23 de noviembre; recién después se sabrá si hay juicio.</p>
+                            </div>
+                        </div>
+                        <button type="button" class="tarjetaFlecha" aria-expanded="false" aria-controls="caso5" aria-label="Ver más sobre el caso Disney-Universal vs Midjourney">
+                            <span class="tarjetaFlechaTexto">Ver más</span>
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icoChevron"/></svg>
+                        </button>
+                    </article>
+
+                    <article class="tarjeta" data-revelar>
+                        <h4 class="tarjetaTitulo">Actualidad</h4>
+                        <div class="tarjetaMedia">
+                            <img src="img/tarjeta6.png" alt="Balanza de la justicia" width="468" height="268" loading="lazy" decoding="async">
+                        </div>
+                        <div class="tarjetaDetalle" id="caso6">
+                            <div>
+                                <p>Hasta la fecha de publicación de esta infografía, ninguno de los tres litigios principales tiene sentencia firme:</p>
+                            <ul>
+                                <li>
+                                    <p>El juicio de Andersen, antes previsto para septiembre de 2026, se postergó a abril de 2027;</p>
+                                </li>
+                               <li>
+                                <p>Getty tiene permiso para apelar su fallo parcial;</p>
+                               </li>
+                               <li>
+                                <p>Y en el caso de Disney y Universal la etapa de pruebas está por cerrar.</p>
+                               </li>
+                            </ul>
+                            <p>El conflicto que inició en 2023 sigue abierto.</p>
+                            </div>
+                        </div>
+                        <button type="button" class="tarjetaFlecha" aria-expanded="false" aria-controls="caso6" aria-label="Ver más sobre la situación actual">
+                            <span class="tarjetaFlechaTexto">Ver más</span>
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icoChevron"/></svg>
+                        </button>
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ====================================================
+                                     SECCION 2
+            ========================================================-->
+
+        <section class="seccion2">
+
+            <div class="contSeccion2">
+
+                <h2 data-revelar>Impacto laboral</h2>
+
+                <div class="contenedorTarjetas3">
+
+                    <article class="tarjeta tarjeta3" data-revelar data-etiqueta="datos">
+
+                        <div class="tarjetaCabecera">
+                            <div class="tarjetaPortadaWrap"><img src="img/mercado-stock.png" class="tarjetaPortada2" alt="Mosaico de imágenes de stock generadas con IA" loading="lazy" decoding="async"></div>
+                            <div class="tarjetaTexto2">
+                                <h3 class="tarjetaTitulo2">El nuevo mercado de imágenes stock</h3>
+                                <p class="tarjetaFecha2">Datos medidos de julio 2023 a mayo 2024</p>
+                                <p class="tarjetaAutores2">Samuel Goldberg y H. Tai Lam</p>
+                            </div>
+                            <div class="tarjetaDato2">
+                                <p class="datoGrande violeta" data-contador="136" data-prefijo="+" data-sufijo="%">+136%</p>
+                                <p class="datoTexto">imágenes por mes; contra <strong data-contador="15" data-prefijo="-" data-sufijo="%">-15%</strong> las que fueron hechas sin IA</p>
+                            </div>
+                        </div>
+
+                        <div class="tarjetaDetalle" id="datoCaso1">
+                            <div>
+
+                                <div class="grupoDato">
+
+                                <p>En las plataformas de imágenes stock, los artistas suben sus obras para que empresas y periodistas les compren. <span class="resaltado">Desde julio de 2023</span>, una de las más grandes empezó a aceptar imágenes generadas con IA (siempre etiquetadas), pero solo en las genéricas: no en las editoriales, que muestran marcas reales o ilustran noticias.</p>
+
+                                <p>Un estudio de Stanford y UCLA midió qué cambió después, comparando los dos grupos: las <span class="resaltado">imágenes donde se permitió la IA</span> y las <span class="resaltado">editoriales</span>, donde no:</p>
+
+                                <div class="grafico graficoDoble">
+
+                                    <div class="graficoEjeY">
+                                        <span>150%</span>
+                                        <span>100%</span>
+                                        <span>50%</span>
+                                        <span>0%</span>
+                                        <span>-50%</span>
+                                    </div>
+
+                                    <div class="graficoPanel">
+                                        <p class="graficoTitulo">Imágenes publicadas por mes<br><span class="graficoSubtitulo">julio 2023 - mayo 2024</span></p>
+                                        <div class="graficoArea">
+                                            <div class="graficoRejilla">
+                                                <span style="top:0%"></span>
+                                                <span style="top:25%"></span>
+                                                <span style="top:50%"></span>
+                                                <span class="cero" style="top:75%"></span>
+                                                <span style="top:100%"></span>
+                                            </div>
+                                            <button type="button" class="graficoColumna" style="--alto:275.2px" aria-label="Con y sin IA (conjunto): +136%">
+                                                <span class="graficoValor" data-contador="136" data-prefijo="+" data-sufijo="%">+136%</span>
+                                            </button>
+                                            <button type="button" class="graficoColumna negativa" style="--alto:29.75px" aria-label="Solo sin IA: -15%">
+                                                <span class="graficoValor" data-contador="15" data-prefijo="-" data-sufijo="%">-15%</span>
+                                            </button>
+                                        </div>
+                                        <div class="graficoEtiquetasX">
+                                            <span>Con y sin IA<br>(conjunto)</span>
+                                            <span>Solo sin IA</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="graficoPanel">
+                                        <p class="graficoTitulo">Imágenes vendidas por mes<br><span class="graficoSubtitulo">julio 2023 - mayo 2024</span></p>
+                                        <div class="graficoArea">
+                                            <div class="graficoRejilla">
+                                                <span style="top:0%"></span>
+                                                <span style="top:25%"></span>
+                                                <span style="top:50%"></span>
+                                                <span class="cero" style="top:75%"></span>
+                                                <span style="top:100%"></span>
+                                            </div>
+                                            <button type="button" class="graficoColumna" style="--alto:165.5px" aria-label="Con y sin IA (conjunto): +82%">
+                                                <span class="graficoValor" data-contador="82" data-prefijo="+" data-sufijo="%">+82%</span>
+                                            </button>
+                                            <button type="button" class="graficoColumna negativa" style="--alto:55.5px" aria-label="Solo sin IA: -28%">
+                                                <span class="graficoValor" data-contador="28" data-prefijo="-" data-sufijo="%">-28%</span>
+                                            </button>
+                                        </div>
+                                        <div class="graficoEtiquetasX">
+                                            <span>Con y sin IA<br>(conjunto)</span>
+                                            <span>Solo sin IA</span>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                </div>
+
+                                <div class="grupoDato">
+
+                                <p>Este mismo cambio también se ve en <span class="resaltado">quién produce</span> esas imágenes:</p>
+
+                                <div class="grafico graficoSimple">
+
+                                    <div class="graficoEjeY">
+                                        <span>150%</span>
+                                        <span>100%</span>
+                                        <span>50%</span>
+                                        <span>0%</span>
+                                        <span>-50%</span>
+                                    </div>
+
+                                    <div class="graficoPanel">
+                                        <p class="graficoTitulo">Artistas activos por mes<br><span class="graficoSubtitulo">julio 2023 - mayo 2024</span></p>
+                                        <div class="graficoArea">
+                                            <div class="graficoRejilla">
+                                                <span style="top:0%"></span>
+                                                <span style="top:25%"></span>
+                                                <span style="top:50%"></span>
+                                                <span class="cero" style="top:75%"></span>
+                                                <span style="top:100%"></span>
+                                            </div>
+                                            <button type="button" class="graficoColumna" style="--alto:93.5px" aria-label="Con y sin IA (conjunto): +47%">
+                                                <span class="graficoValor" data-contador="47" data-prefijo="+" data-sufijo="%">+47%</span>
+                                            </button>
+                                            <button type="button" class="graficoColumna negativa" style="--alto:61.5px" aria-label="Solo sin IA: -29%">
+                                                <span class="graficoValor" data-contador="29" data-prefijo="-" data-sufijo="%">-29%</span>
+                                            </button>
+                                        </div>
+                                        <div class="graficoEtiquetasX">
+                                            <span>Con y sin IA<br>(conjunto)</span>
+                                            <span>Solo sin IA</span>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <button type="button" class="tarjetaFlecha" aria-expanded="false" aria-controls="datoCaso1" aria-label="Ver más datos sobre el nuevo mercado de imágenes stock">
+                            <span class="tarjetaFlechaTexto">Ver más datos</span>
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icoChevron"/></svg>
+                        </button>
+
+                    </article>
+
+                    <article class="tarjeta tarjeta3" data-revelar data-etiqueta="datos">
+
+                        <div class="tarjetaCabecera">
+                            <div class="tarjetaPortadaWrap"><img src="img/caida-freelance.png" class="tarjetaPortada2" alt="Ilustración sobre la caída del trabajo freelance" loading="lazy" decoding="async"></div>
+                            <div class="tarjetaTexto2">
+                                <h3 class="tarjetaTitulo2">Caída del trabajo freelance por la IA</h3>
+                                <p class="tarjetaFecha2">Datos medidos de julio 2022 a julio 2023</p>
+                                <p class="tarjetaAutores2">Ozge Demirci, Hannane Jonas y Xinrong Zhu</p>
+                            </div>
+                            <div class="tarjetaDato2">
+                                <p class="datoGrande naranja" data-contador="18" data-prefijo="-" data-sufijo="%">-18%</p>
+                                <p class="datoTexto">ofertas de diseño gráfico frente a trabajos manuales</p>
+                            </div>
+                        </div>
+
+                        <div class="tarjetaDetalle" id="datoCaso2">
+                            <div>
+
+                                <div class="grupoDato">
+
+                                <p>Otro estudio analizó más de un millón de publicaciones de trabajo en una plataforma freelance global. Entre <span class="resaltado">julio de 2022</span> y <span class="resaltado">julio de 2023</span>, tras la llegada de las IA generadoras de imágenes, las ofertas de diseño gráfico y modelado 3D cayeron más que las de trabajos manuales (administración y carga de datos, audio y video):</p>
+
+                                <div class="donuts">
+
+                                    <div class="donut" style="--offset: 572.27px" tabindex="0" role="img" aria-label="Ofertas de trabajo en diseño gráfico: -18%">
+                                        <svg viewBox="0 0 277.68 277.68">
+                                            <circle class="donutBase" cx="138.84" cy="138.84" r="113.85"/>
+                                            <circle class="donutValor" cx="138.84" cy="138.84" r="113.85"/>
+                                            <text class="donutEtiqueta" x="71.92" y="46.73" data-contador="18" data-prefijo="-" data-sufijo="%">-18%</text>
+                                        </svg>
+                                        <div class="donutCentro">
+                                            <img src="img/icono2.1.png" class="donutIcono" alt="" loading="lazy" decoding="async">
+                                            <p class="donutCentroTexto">Ofertas de trabajo en <strong>diseño gráfico</strong></p>
+                                        </div>
+                                    </div>
+
+                                    <div class="donut" style="--offset: 608.04px" tabindex="0" role="img" aria-label="Ofertas de trabajo en modelado 3D: -15%">
+                                        <svg viewBox="0 0 277.68 277.68">
+                                            <circle class="donutBase" cx="138.84" cy="138.84" r="113.85"/>
+                                            <circle class="donutValor" cx="138.84" cy="138.84" r="113.85"/>
+                                            <text class="donutEtiqueta" x="87.15" y="37.4" data-contador="15" data-prefijo="-" data-sufijo="%">-15%</text>
+                                        </svg>
+                                        <div class="donutCentro">
+                                            <img src="img/icono2.2.png" class="donutIcono" alt="" loading="lazy" decoding="async">
+                                            <p class="donutCentroTexto">Ofertas de trabajo en <strong>modelado 3D</strong></p>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <button type="button" class="tarjetaFlecha" aria-expanded="false" aria-controls="datoCaso2" aria-label="Ver más datos sobre la caída del trabajo freelance">
+                            <span class="tarjetaFlechaTexto">Ver más datos</span>
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icoChevron"/></svg>
+                        </button>
+
+                    </article>
+
+                    <article class="tarjeta tarjeta3" data-revelar data-etiqueta="datos">
+
+                        <div class="tarjetaCabecera">
+                            <div class="tarjetaPortadaWrap"><img src="img/impacto-ilustradores.png" class="tarjetaPortada2" alt="Ilustración sobre el impacto de la IA en ilustradores" loading="lazy" decoding="async"></div>
+                            <div class="tarjetaTexto2">
+                                <h3 class="tarjetaTitulo2">Impacto de la IA en ilustradores</h3>
+                                <p class="tarjetaFecha2">Datos de encuesta de enero 2025</p>
+                                <p class="tarjetaAutores2">Association of Illustrators (AOI)</p>
+                            </div>
+                            <div class="tarjetaDato2">
+                                <p class="datoGrande naranja" data-contador="32" data-sufijo="%">32%</p>
+                                <p class="datoTexto">de los ilustradores declaró haber perdido encargos</p>
+                            </div>
+                        </div>
+
+                        <div class="tarjetaDetalle" id="datoCaso3">
+                            <div>
+
+                                <div class="grupoDato">
+
+                                <p class="parrafoAncho">A comienzos de 2025, la Asociación de Ilustradores del Reino Unido encuestó a sus ilustradores. Casi un tercio de quienes respondieron declaró haber perdido encargos por alternativas de IA:</p>
+
+                                <div class="tarjetaDato" id="tarjetaDato">
+
+                                    <div class="pictogramaIconos" id="waffle">
+                                        <span class="usuario afectado" data-grupo="afectado" aria-hidden="true">
+                                            <img src="img/user-blanco.png" alt="" class="base" loading="lazy" decoding="async">
+                                            <img src="img/user-violeta.png" alt="" class="relleno" loading="lazy" decoding="async">
+                                        </span>
+                                        <span class="usuario afectado" data-grupo="afectado" aria-hidden="true">
+                                            <img src="img/user-blanco.png" alt="" class="base" loading="lazy" decoding="async">
+                                            <img src="img/user-violeta.png" alt="" class="relleno" loading="lazy" decoding="async">
+                                        </span>
+                                        <span class="usuario afectado" data-grupo="afectado" aria-hidden="true">
+                                            <img src="img/user-blanco.png" alt="" class="base" loading="lazy" decoding="async">
+                                            <img src="img/user-violeta.png" alt="" class="relleno" loading="lazy" decoding="async">
+                                        </span>
+                                        <span class="usuario" data-grupo="resto" aria-hidden="true"><img src="img/user-blanco.png" alt="" class="base" loading="lazy" decoding="async"></span>
+                                        <span class="usuario" data-grupo="resto" aria-hidden="true"><img src="img/user-blanco.png" alt="" class="base" loading="lazy" decoding="async"></span>
+                                        <span class="usuario" data-grupo="resto" aria-hidden="true"><img src="img/user-blanco.png" alt="" class="base" loading="lazy" decoding="async"></span>
+                                        <span class="usuario" data-grupo="resto" aria-hidden="true"><img src="img/user-blanco.png" alt="" class="base" loading="lazy" decoding="async"></span>
+                                        <span class="usuario" data-grupo="resto" aria-hidden="true"><img src="img/user-blanco.png" alt="" class="base" loading="lazy" decoding="async"></span>
+                                        <span class="usuario" data-grupo="resto" aria-hidden="true"><img src="img/user-blanco.png" alt="" class="base" loading="lazy" decoding="async"></span>
+                                        <span class="usuario" data-grupo="resto" aria-hidden="true"><img src="img/user-blanco.png" alt="" class="base" loading="lazy" decoding="async"></span>
+                                    </div>
+
+                                    <h2 class="pictogramaPorcentaje" data-contador="32" data-sufijo="%">32%</h2>
+
+                                    <p class="pictogramaTexto">de los ilustradores encuestados perdió encargos por alternativas de IA</p>
+
+                                    <p class="pictogramaPerdida">
+                                        <span>— pérdida promedio: <strong>£9.262</strong> por artista</span>
+                                        <span class="pictogramaPerdidaAprox">(aprox. 12.000 USD)</span>
+                                    </p>
+
+                                </div>
+
+                                </div>
+
+                                <div class="grupoDato">
+
+                                <p>Para conseguir encargos, los ilustradores necesitan mostrar su trabajo en internet. Ahí también puede ser rastreado para entrenar IAs, y bloquear ese rastreo tiene un costo:</p>
+
+                                <div class="flujo" id="flujo">
+
+                                    <svg class="conectores" id="conectores" aria-hidden="true" focusable="false"></svg>
+
+                                    <div class="nivel">
+                                        <div class="tarjeta2 nodo nodoInicial" id="nodoInicial">
+                                            <span class="etiqueta">Publicar trabajo online</span>
+                                            <img src="img/icono-publicar.png" class="nodoIcono" alt="" width="48" height="48" loading="lazy" decoding="async">
+                                        </div>
+                                    </div>
+
+                                    <div class="ramas" id="ramas">
+
+                                        <div class="ramasInterior">
+
+                                            <div class="tarjetaVerde nodo nodoRama">
+                                                <img src="img/icono-visibilidad.png" class="nodoIcono" alt="" width="48" height="48" loading="lazy" decoding="async">
+                                                <span class="etiqueta">Visibilidad y clientes</span>
+                                                <span class="detalle" id="detalleVerde"><span class="resaltado3">Consiguen encargos</span></span>
+                                            </div>
+
+                                            <div class="tarjetaRoja nodo nodoRama">
+                                                <img src="img/icono-scraping.png" class="nodoIcono" alt="" width="48" height="48" loading="lazy" decoding="async">
+                                                <span class="etiqueta">Exposición al scraping</span>
+                                                <span class="detalle" id="detalleRojo"><span class="resaltado3">Pueden usar su obra para entrenar IAs</span></span>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="nivelFinal" id="nivelFinal">
+                                        <div class="finalInterior">
+                                            <div class="tarjeta2 nodoFinal" id="nodoFinal">
+                                                <h2 data-contador="87" data-sufijo="%">87%</h2>
+                                                <p class="nodoFinalTexto">de los ilustradores teme que bloquear el rastreo de sus obras reduzca su visibilidad online</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <button type="button" class="tarjetaFlecha" aria-expanded="false" aria-controls="datoCaso3" aria-label="Ver más datos sobre el impacto de la IA en ilustradores">
+                            <span class="tarjetaFlechaTexto">Ver más datos</span>
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icoChevron"/></svg>
+                        </button>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ====================================================
+                                     SECCION 3
+            ========================================================-->
+
+        <section class="seccion3">
+
+            <div class="contSeccion3">
+
+                <h2 data-revelar>Fuentes</h2>
+
+                <h3 data-revelar>Núcleo 1 - Demandas por derechos de autor:</h3>
+
+                <nav data-revelar>
+                    <ol>
+                        <li><strong>AI Lawsuit Tracker</strong> (5 de mayo de 2026). <a href="https://ailawsuittracker.com/cases/andersen-v-stability-ai-ltd-3-23-cv-00201/" target="_blank" rel="noopener">Andersen v. Stability AI: Case Status May 2026</a>.</li>
+
+                        <li><strong>AI Lawsuit Tracker</strong> (20 de mayo de 2026). <a href="https://ailawsuittracker.com/cases/getty-v-stability-ai/" target="_blank" rel="noopener">Getty Images v. Stability AI: Case Status May 2026</a>.</li>
+
+                        <li><strong>Marga Zambrana</strong> (8 de mayo de 2025). <a href="https://www.uoc.edu/es/news/2025/inteligencia-artificial-apropiacion-indebida-arte-derechos-de-autor" target="_blank" rel="noopener">La inteligencia artificial frente al arte y los derechos de autor: ¿apropiación indebida?</a>, <strong>Universitat Oberta de Catalunya</strong>.</li>
+
+                        <li><strong>AI Lawsuit Tracker</strong> (26 de abril de 2026). <a href="https://ailawsuittracker.com/blog/disney-v-midjourney-explained/" target="_blank" rel="noopener">Disney v. Midjourney Explained — Hollywood AI Case</a>.</li>
+
+                        <li><strong>Judy Wang y Nicol Turner Lee</strong> (18 de abril de 2025). <a href="https://www.brookings.edu/articles/ai-and-the-visual-arts-the-case-for-copyright-protection/" target="_blank" rel="noopener">AI and the visual arts: The case for copyright protection</a>, <strong>Brookings</strong>.</li>
+                    </ol>
+                </nav>
+
+                <h3 data-revelar>Núcleo 2 - Impacto laboral:</h3>
+
+                <nav data-revelar>
+                    <ol start="6">
+                        <li><strong>Samuel Goldberg y H. Tai Lam</strong> (27 de julio de 2026). <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5152649" target="_blank" rel="noopener">Generative AI &amp; Creative Goods: Market Expansion, Crowd-Out, and Copyright</a>, <strong>Stanford Graduate School of Business</strong>.</li>
+
+                        <li><strong>Demirci, O., Hannane, J. y Zhu, X.</strong> (agosto de 2024). <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4602944" target="_blank" rel="noopener">Who Is AI Replacing? The Impact of Generative AI on Online Freelancing Platforms</a>, <strong>CESifo Working Paper n.º 11276, SSRN</strong>.</li>
+
+                        <li><strong>Association of Illustrators</strong> (febrero de 2025). <a href="https://theaoi.com/news/the-aoi-ai-survey-results" target="_blank" rel="noopener">UK Illustrators Draw the Line: AOI Publishes AI Survey Results</a>.</li>
+                    </ol>
+                </nav>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!--
+    ==================================================
+                        FOOTER
+    ==================================================
+    -->
+
+    <footer>
+
+    </footer>
+
+    <button type="button" class="subir" id="subir" aria-label="Volver arriba">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icoFlechaArriba"/></svg>
+    </button>
+
+    <div class="lbFondo" aria-hidden="true">
+        <div class="lbCaja"></div>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
