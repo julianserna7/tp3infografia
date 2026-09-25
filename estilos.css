@@ -568,6 +568,7 @@ header h1{
 }
 
 .tarjetaDetalle p{
+    align-self: stretch;
     margin: 0;
     font-size: 24px;
     line-height: 1.5;
@@ -576,6 +577,10 @@ header h1{
     opacity: 0;
     transform: translateY(10px);
     transition: opacity 0.45s ease 0.1s, transform 0.45s var(--suave) 0.1s;
+}
+
+#caso6 > div{
+    gap: 12px;
 }
 
 .tarjeta3 .tarjetaDetalle p{
